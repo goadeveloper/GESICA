@@ -16,6 +16,11 @@ namespace GESICA
 
             builder.Services.AddMauiBlazorWebView();
 
+            // Register HTTP Client
+            builder.Services.AddScoped(
+                ss => new HttpClient { BaseAddress = new Uri("http://gesica.local") } 
+            );
+
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
